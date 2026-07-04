@@ -13,6 +13,7 @@ def root():
     print("Inside Server")
     return {"message": "Welcome To Task Manager App"}
 
+#To add task in temp_memo
 @app.post("/tasks")
 def create_task(task: TaskCreate):
     global task_id
@@ -29,10 +30,12 @@ def create_task(task: TaskCreate):
      
     return new_task
     
+#To see all tasks that are stored in temp_memo
 @app.get("/tasks")
 def get_task():
     return temp_memo
 
+#to see particular task with id 
 @app.get("/tasks/{call_id}")
 def get_task_with_id(call_id : int):
     for task in temp_memo:
@@ -44,6 +47,7 @@ def get_task_with_id(call_id : int):
         detail="Task not found"
     )
         
+#To update particular task
 @app.put("/tasks/{call_id}")
 def update_task(call_id : int, new_message :TaskCreate):
     for task in temp_memo:
@@ -56,6 +60,7 @@ def update_task(call_id : int, new_message :TaskCreate):
         detail="Task Not Found"
     )
     
+#To delete particular task from list(temp_memo)
 @app.delete("/tasks/{call_id}")
 def remove_task(call_id : int):
     for task in temp_memo:
