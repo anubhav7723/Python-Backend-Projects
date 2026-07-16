@@ -3,7 +3,6 @@ from sqlalchemy.orm import Session
 from app.schemas.task import TaskCreate
 from app.repositories.task import TaskRepository
 
-
 class TaskService:
 
     @staticmethod
@@ -25,4 +24,3 @@ class TaskService:
     @staticmethod
     def delete_task(db: Session, task_id: int):
         return TaskRepository.delete(db, task_id)
-    

@@ -4,4 +4,3 @@ class TaskCreate(BaseModel):
     title : str
     description : str
     priority : str
-    task_id : int
