@@ -5,6 +5,12 @@ from app.models.user import User
 
 class UserRepository:
     @staticmethod
+    def get_all_users(db: Session):
+        to_print = select(User)
+        res = db.execute(to_print)
+        return res.scalars().all()
+    
+    @staticmethod
     def create(db: Session, username: str, email: str, hashed_password: str):
         
         db_user = User(
