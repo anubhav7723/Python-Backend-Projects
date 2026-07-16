@@ -3,8 +3,8 @@ from fastapi import Depends
 from fastapi import HTTPException
 
 from sqlalchemy.orm import Session
-
 from app.dependencies import get_db
+
 from app.schemas.task import TaskCreate
 from app.services.task import TaskService
 

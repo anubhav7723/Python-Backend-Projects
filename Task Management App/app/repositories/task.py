@@ -5,8 +5,8 @@ from app.models.task import Task
 from app.schemas.task import TaskCreate
 
 
-class TaskRepository:
 
+class TaskRepository:
     @staticmethod
     def create(db: Session, task: TaskCreate):
         db_task = Task(
